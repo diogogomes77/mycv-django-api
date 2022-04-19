@@ -11,10 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
-from dotenv import load_dotenv
 import os
-
-load_dotenv()  # take environment variables from .env.
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,25 +21,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True if os.getenv('DEBUG', False) == 'True' else False
+DEBUG = True if os.environ.get('DEBUG', False) == 'True' else False
 
 ALLOWED_HOSTS = []
 
 
 # Application definition
-
-INTERNAL_APPS = [
-    # Internal apps
-    'mycv.apps.common',
-    'mycv.apps.businesses',
-    'mycv.apps.projects',
-    'mycv.apps.technologies',
-    'mycv.apps.colaborations',
-    'mycv.apps.users'
-]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -53,8 +40,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Third party apps
     'django_extensions',
-] + INTERNAL_APPS
-
+    # Internal apps
+    'mycv.apps.common',
+    'mycv.apps.businesses',
+    'mycv.apps.projects',
+    'mycv.apps.technologies',
+    'mycv.apps.colaborations',
+    'mycv.apps.users'
+]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

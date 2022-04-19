@@ -1,5 +1,5 @@
 run:
-	python manage.py runserver
+	python manage.py runserver_plus
 
 install:
 	pip install -r requirements.txt
@@ -12,7 +12,3 @@ migrate:
 
 makemigrations:
 	python manage.py makemigrations
-
-test:
-	coverage run manage.py test
-	coverage report
