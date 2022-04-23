@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class ColaborationsConfig(AppConfig):
+class UsersConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'mycv.apps.colaborations'
+    name = 'mycv_django.apps.users'

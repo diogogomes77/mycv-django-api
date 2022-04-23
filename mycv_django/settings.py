@@ -37,12 +37,12 @@ ALLOWED_HOSTS = []
 
 INTERNAL_APPS = [
     # Internal apps
-    'mycv.apps.common',
-    'mycv.apps.businesses',
-    'mycv.apps.projects',
-    'mycv.apps.technologies',
-    'mycv.apps.colaborations',
-    'mycv.apps.users'
+    'mycv_django.apps.common',
+    'mycv_django.apps.businesses',
+    'mycv_django.apps.projects',
+    'mycv_django.apps.technologies',
+    'mycv_django.apps.colaborations',
+    'mycv_django.apps.users'
 ]
 
 INSTALLED_APPS = [
@@ -68,7 +68,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
-ROOT_URLCONF = 'mycv.urls'
+ROOT_URLCONF = 'mycv_django.urls'
 
 TEMPLATES = [
     {
@@ -86,7 +86,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'mycv.wsgi.application'
+WSGI_APPLICATION = 'mycv_django.wsgi.application'
 
 
 # Database
