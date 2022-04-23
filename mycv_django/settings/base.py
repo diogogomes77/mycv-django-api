@@ -41,8 +41,9 @@ INTERNAL_APPS = [
     'mycv_django.apps.businesses',
     'mycv_django.apps.projects',
     'mycv_django.apps.technologies',
-    'mycv_django.apps.colaborations',
-    'mycv_django.apps.users'
+    'mycv_django.apps.collaborations',
+    'mycv_django.apps.users',
+    'mycv_django.apps.collaborators',
 ]
 
 INSTALLED_APPS = [
