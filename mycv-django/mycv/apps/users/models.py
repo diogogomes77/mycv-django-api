@@ -6,6 +6,7 @@ class User(AbstractUser):
     @property
     def is_developer(self) -> bool:
         """Define if the user is related to a developer."""
+
         return hasattr(self, 'developer')
 
     @property
