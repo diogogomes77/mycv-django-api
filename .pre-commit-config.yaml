@@ -5,13 +5,19 @@ repos:
     rev: v3.2.0
     hooks:
       - id: trailing-whitespace
+        stages: [commit]
       - id: end-of-file-fixer
+        stages: [commit]
       - id: check-yaml
+        stages: [commit]
       - id: check-added-large-files
+        stages: [commit]
   - repo: https://github.com/asottile/seed-isort-config
     rev: v2.2.0
+
     hooks:
       - id: seed-isort-config
+        stages: [commit]
   - repo: https://github.com/pycqa/isort
     rev: 5.7.0
     hooks:
@@ -20,6 +26,7 @@ repos:
     rev: 4.0.1
     hooks:
       - id: flake8
+        stages: [commit]
         additional_dependencies:
           - flake8-bugbear
           #- flake8-builtins
@@ -27,3 +34,12 @@ repos:
           - flake8-comprehensions
           - flake8-isort
           - pep8-naming
+  - repo: local
+    hooks:
+      - id: django-test
+        name: django-test
+        stages: [push]
+        entry: make test
+        always_run: true
+        pass_filenames: false
+        language: system
