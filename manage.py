@@ -6,11 +6,7 @@ import sys
 
 def main():
     """Run administrative tasks."""
-    if os.environ.get("DJANGO_ENV") == 'heroku':
-        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mycv_django.settings.heroku')
-    else:
-        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mycv_django.settings.base')
-
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mycv_django.settings.base')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
