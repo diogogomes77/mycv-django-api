@@ -4,7 +4,7 @@ on:
     types: [opened, synchronize]
 
 jobs:
-  checks:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,14 +16,22 @@ jobs:
       - name: Setup python environment
         uses: actions/setup-python@v2
         with:
-          python-version: '3.8.10'
+          python-version: '3.x'
       - name: Check Python version
         run: python --version
       - name: Install requirements
-        run: pip install -r requirements.txt
+        run: |
+          cd mycv-django
+          pip install -r requirements.txt
       - name: Check Syntax
-        run: flake8 .
+        run: |
+          cd mycv-django
+          flake8 .
       - name: Run Migrations
-        run: python manage.py migrate
+        run: |
+          cd mycv-django
+          python manage.py migrate
       - name: Run Test
-        run: make test
+        run: |
+          cd mycv-django
+          python manage.py test
