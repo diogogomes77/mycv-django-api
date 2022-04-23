@@ -1,5 +1,4 @@
 from mycv.apps.common.management.base import CreateDataBaseCommand
-
 from mycv.apps.users.factories import UserFactory
 
 
