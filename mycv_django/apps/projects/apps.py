@@ -3,4 +3,4 @@ from django.apps import AppConfig
 
 class ProjectsConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'mycv.apps.projects'
+    name = 'mycv_django.apps.projects'

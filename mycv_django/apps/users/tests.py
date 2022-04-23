@@ -1,8 +1,8 @@
 from django.contrib.admin.options import ModelAdmin
 from django.contrib.admin.sites import AdminSite
 from django.test import TestCase
-from mycv.apps.users.admin import UserAdmin
-from mycv.apps.users.models import User
+from mycv_django.apps.users.admin import UserAdmin
+from mycv_django.apps.users.models import User
 
 
 class UserModelTest(TestCase):

@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class TechnologiesConfig(AppConfig):
+class CommonConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'mycv.apps.technologies'
+    name = 'mycv_django.apps.common'

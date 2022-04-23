@@ -20,18 +20,10 @@ jobs:
       - name: Check Python version
         run: python --version
       - name: Install requirements
-        run: |
-          cd mycv-django
-          pip install -r requirements.txt
+        run: pip install -r requirements.txt
       - name: Check Syntax
-        run: |
-          cd mycv-django
-          flake8 .
+        run: flake8 .
       - name: Run Migrations
-        run: |
-          cd mycv-django
-          python manage.py migrate
+        run: python manage.py migrate
       - name: Run Test
-        run: |
-          cd mycv-django
-          python manage.py test
+        run: python manage.py test
