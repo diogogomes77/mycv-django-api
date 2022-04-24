@@ -19,6 +19,7 @@ Django==4.0.4
 django-extensions==3.1.5
 django-heroku==0.3.1
 django-toolbelt==0.0.1
+djangorestframework==3.13.1
 executing==0.8.3
 factory-boy==3.2.1
 Faker==13.3.4

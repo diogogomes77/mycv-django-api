@@ -15,44 +15,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from drf_yasg import openapi
-from drf_yasg.views import get_schema_view
-from rest_framework import permissions, routers
+from rest_framework import routers
 
-from mycv_django.apps.businesses.views import BusinessViewSet
-from mycv_django.apps.collaborations.views import CollaborationViewSet
 from mycv_django.apps.collaborators.views import (
     DeveloperViewSet,
     ManagerViewSet,
 )
-from mycv_django.apps.projects.views import ProjectViewSet
-from mycv_django.apps.technologies.views import TechnologyViewSet
 from mycv_django.apps.users.views import UsersViewSet
-
-schema_view_yasg = get_schema_view(
-    openapi.Info(
-        title="MyCV API",
-        default_version='v0.1',
-        description="MyCV Django API",
-        contact=openapi.Contact(email="diogo.gomes77@gmail.com"),
-    ),
-    public=True,
-    permission_classes=[permissions.AllowAny],
-)
 
 router = routers.DefaultRouter()
 router.register(r'developers', DeveloperViewSet)
 router.register(r'managers', ManagerViewSet)
 router.register(r'users', UsersViewSet)
-router.register(r'projects', ProjectViewSet)
-router.register(r'collaborations', CollaborationViewSet)
-router.register(r'businesses', BusinessViewSet)
-router.register(r'technologies', TechnologyViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path('redoc/', schema_view_yasg.with_ui('redoc', cache_timeout=0), name='schema-swagger-ui'),
-    path('swagger/', schema_view_yasg.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
