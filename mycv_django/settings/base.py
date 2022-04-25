@@ -41,8 +41,9 @@ INTERNAL_APPS = [
     'mycv_django.apps.businesses',
     'mycv_django.apps.projects',
     'mycv_django.apps.technologies',
-    'mycv_django.apps.colaborations',
-    'mycv_django.apps.users'
+    'mycv_django.apps.collaborations',
+    'mycv_django.apps.users',
+    'mycv_django.apps.collaborators',
 ]
 
 INSTALLED_APPS = [
@@ -54,6 +55,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Third party apps
     'django_extensions',
+    'rest_framework',
+    'drf_yasg',
 ] + INTERNAL_APPS
 
 
@@ -154,4 +157,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}

@@ -16,3 +16,6 @@ makemigrations:
 test:
 	coverage run manage.py test
 	coverage report
+
+create_data:
+	python manage.py create_data
