@@ -52,14 +52,16 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     # Third party apps
     'django_extensions',
     'rest_framework',
     'drf_yasg',
-    'whitenoise.runserver_nostatic',
 ] + INTERNAL_APPS
 
+WHITENOISE_MANIFEST_STRICT = False
+STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -151,7 +153,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 STATIC_URL = '/static/'
 
 # Extra places for collectstatic to find static files.
@@ -163,5 +164,3 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10
 }
-
-WHITENOISE_MANIFEST_STRICT = False
