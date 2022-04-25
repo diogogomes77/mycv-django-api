@@ -162,8 +162,3 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10
 }
-
-WHITENOISE_MANIFEST_STRICT = False
-STATICFILES_STORAGE = 'mycv_django.settings.storage.NoSourceMapsStorage'
-
-print('STATICFILES_STORAGE: ', STATICFILES_STORAGE)
