@@ -9,5 +9,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         management.call_command('create_developers', number=5)
         management.call_command('create_managers', number=5)
+        management.call_command('create_countries', number=5)
+        management.call_command('create_businesses', number=5)
         management.call_command('create_projects', number=5)
         management.call_command('create_collaborations', number=25)

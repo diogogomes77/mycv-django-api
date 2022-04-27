@@ -35,7 +35,6 @@ def get_random_manager():
 
 
 def get_group_random_user(project):
-    print('get_group_random_user project:', project)
     project_collaborators = project.collaborations.values_list('id', flat=True)
     groups_list = Group.objects.values_list('name', flat=True)
     group = choice(groups_list)
