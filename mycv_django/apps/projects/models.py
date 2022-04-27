@@ -7,3 +7,6 @@ class Project(models.Model):
     collaborations = models.ManyToManyField('users.User',
                                             through='collaborations.Collaboration',
                                             through_fields=['project', 'collaborator'])
+
+    def __str__(self):
+        return self.name
