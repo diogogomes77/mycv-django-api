@@ -19,6 +19,7 @@ from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions, routers
 
+from mycv_django.apps.businesses.v import BusinessViewSet
 from mycv_django.apps.collaborations.views import CollaborationViewSet
 from mycv_django.apps.collaborators.views import (
     DeveloperViewSet,
@@ -44,6 +45,7 @@ router.register(r'managers', ManagerViewSet)
 router.register(r'users', UsersViewSet)
 router.register(r'projects', ProjectViewSet)
 router.register(r'collaborations', CollaborationViewSet)
+router.register(r'businesses', BusinessViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
