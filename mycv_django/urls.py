@@ -26,6 +26,7 @@ from mycv_django.apps.collaborators.views import (
     ManagerViewSet,
 )
 from mycv_django.apps.projects.views import ProjectViewSet
+from mycv_django.apps.technologies.views import TechnologyViewSet
 from mycv_django.apps.users.views import UsersViewSet
 
 schema_view_yasg = get_schema_view(
@@ -46,6 +47,7 @@ router.register(r'users', UsersViewSet)
 router.register(r'projects', ProjectViewSet)
 router.register(r'collaborations', CollaborationViewSet)
 router.register(r'businesses', BusinessViewSet)
+router.register(r'technologies', TechnologyViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
