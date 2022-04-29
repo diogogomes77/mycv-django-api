@@ -13,3 +13,6 @@ class Command(BaseCommand):
         management.call_command('create_businesses', number=5)
         management.call_command('create_projects', number=5)
         management.call_command('create_collaborations', number=25)
+        management.call_command('create_technologies', number=10)
+        management.call_command('create_project_technologies', number=10)
+        management.call_command('create_collaboration_technologies', number=10)
