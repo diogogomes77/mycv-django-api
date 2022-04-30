@@ -13,7 +13,7 @@ class DeveloperViewSet(viewsets.ModelViewSet):
     """
     queryset = Developer.objects.all()
     serializer_class = DeveloperSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
 class ManagerViewSet(viewsets.ModelViewSet):
@@ -22,4 +22,4 @@ class ManagerViewSet(viewsets.ModelViewSet):
     """
     queryset = Manager.objects.all()
     serializer_class = ManagerSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
