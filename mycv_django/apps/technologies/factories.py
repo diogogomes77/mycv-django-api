@@ -13,7 +13,7 @@ fake = Faker()
 
 def get_random_technology(technology=None):
     tech = technology.pk if technology else None
-    print('get_random_technology: ', tech)
+    # print('get_random_technology: ', tech)
     pks = models.Technology.objects.exclude(pk=tech).values_list('pk', flat=True)
     random_pk = choice(pks)
     random_object = models.Technology.objects.get(pk=random_pk)
