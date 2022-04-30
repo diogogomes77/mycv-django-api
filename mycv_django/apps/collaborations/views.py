@@ -10,4 +10,4 @@ class CollaborationViewSet(viewsets.ModelViewSet):
     """
     queryset = Collaboration.objects.all()
     serializer_class = CollaborationSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.IsAuthenticated]

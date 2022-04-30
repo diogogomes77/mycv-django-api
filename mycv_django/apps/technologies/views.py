@@ -10,4 +10,4 @@ class TechnologyViewSet(viewsets.ModelViewSet):
     """
     queryset = Technology.objects.all()
     serializer_class = TechnologySerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.IsAuthenticated]
