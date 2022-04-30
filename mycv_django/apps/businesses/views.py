@@ -10,4 +10,4 @@ class BusinessViewSet(viewsets.ModelViewSet):
     """
     queryset = Business.objects.all()
     serializer_class = BusinessSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
