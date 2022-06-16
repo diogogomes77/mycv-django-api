@@ -18,10 +18,3 @@ class ProjectDetailSerializer(serializers.HyperlinkedModelSerializer):
         fields = '__all__'
 
     collaborations = CollaborationSerializer(source='collaboration_set', many=True, read_only=True)
-
-
-class ProjectSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Project
-        fields = '__all__'
