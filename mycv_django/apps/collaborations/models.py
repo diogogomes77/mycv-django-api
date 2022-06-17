@@ -24,3 +24,7 @@ class Collaboration(models.Model):
     technologies = models.ManyToManyField(Technology,
                                           through=CollaborationTechnology,
                                           through_fields=['collaboration', 'technology'])
+
+    @property
+    def id(self):
+        return self.id
