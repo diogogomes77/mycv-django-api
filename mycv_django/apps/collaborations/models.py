@@ -22,6 +22,7 @@ class Collaboration(models.Model):
     ended_at = models.DateField(null=True, blank=True)
 
     technologies = models.ManyToManyField(Technology,
+                                          related_name='collaborations',
                                           through=CollaborationTechnology,
                                           through_fields=['collaboration', 'technology'])
 
