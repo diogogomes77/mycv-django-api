@@ -53,6 +53,10 @@ class ProjectTechnology(models.Model):
     )
     comment = models.TextField(null=True, blank=True)
 
+    @property
+    def id(self):
+        return self.id
+
 
 class CollaborationTechnology(models.Model):
     collaboration = models.ForeignKey('collaborations.Collaboration',
