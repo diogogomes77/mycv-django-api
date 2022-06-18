@@ -18,6 +18,10 @@ class Technology(models.Model):
     def __str__(self):
         return self.name
 
+    @property
+    def id(self):
+        return self.id
+
 
 class ParentTechnology(models.Model):
     technology = models.ForeignKey(
@@ -30,6 +34,10 @@ class ParentTechnology(models.Model):
         on_delete=models.CASCADE,
         related_name='tech_parent'
     )
+
+    @property
+    def id(self):
+        return self.id
 
 
 class ProjectTechnology(models.Model):
