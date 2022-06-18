@@ -28,3 +28,6 @@ class Collaboration(models.Model):
     @property
     def id(self):
         return self.id
+
+    def __str__(self) -> str:
+        return f"{self.collaborator} on {self.project}"

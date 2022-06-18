@@ -9,6 +9,11 @@ class ParentTechologyInline(admin.TabularInline):
     fk_name = "parent"
 
 
+class TechologyInline(admin.TabularInline):
+    model = Technology
+    extra = 1
+
+
 @admin.register(Technology)
 class TechnologyAdmin(admin.ModelAdmin):
     inlines = [ParentTechologyInline]
