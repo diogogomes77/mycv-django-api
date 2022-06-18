@@ -15,6 +15,7 @@ class Project(models.Model):
                                  blank=True,
                                  on_delete=models.CASCADE)
     technologies = models.ManyToManyField(Technology,
+                                          related_name='projects',
                                           through=ProjectTechnology,
                                           through_fields=['project', 'technology'])
 
