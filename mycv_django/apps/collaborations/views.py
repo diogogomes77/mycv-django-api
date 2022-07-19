@@ -4,7 +4,7 @@ from mycv_django.apps.collaborations.models import Collaboration
 from mycv_django.apps.collaborations.serializers import CollaborationSerializer
 
 
-class CollaborationViewSet(viewsets.ModelViewSet):
+class CollaborationViewSet(viewsets.ReadOnlyModelViewSet):
     """
     API endpoint that allows collaborations to be viewed or edited.
     """

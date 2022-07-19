@@ -4,7 +4,7 @@ from mycv_django.apps.businesses.models import Business
 from mycv_django.apps.businesses.serializers import BusinessSerializer
 
 
-class BusinessViewSet(viewsets.ModelViewSet):
+class BusinessViewSet(viewsets.ReadOnlyModelViewSet):
     """
     API endpoint that allows businesses to be viewed or edited.
     """
