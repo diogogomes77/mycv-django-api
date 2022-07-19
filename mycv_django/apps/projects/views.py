@@ -4,7 +4,7 @@ from mycv_django.apps.projects.models import Project
 from mycv_django.apps.projects.serializers import ProjectSerializer
 
 
-class ProjectViewSet(viewsets.ModelViewSet):
+class ProjectViewSet(viewsets.ReadOnlyModelViewSet):
     """
     API endpoint that allows projects to be viewed or edited.
     """
