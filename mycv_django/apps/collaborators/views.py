@@ -7,7 +7,7 @@ from mycv_django.apps.collaborators.serializers import (
 )
 
 
-class DeveloperViewSet(viewsets.ModelViewSet):
+class DeveloperViewSet(viewsets.ReadOnlyModelViewSet):
     """
     API endpoint that allows developers to be viewed or edited.
     """
@@ -16,7 +16,7 @@ class DeveloperViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
-class ManagerViewSet(viewsets.ModelViewSet):
+class ManagerViewSet(viewsets.ReadOnlyModelViewSet):
     """
     API endpoint that allows managers to be viewed or edited.
     """

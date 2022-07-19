@@ -8,7 +8,7 @@ from mycv_django.apps.projects.serializers import (
 )
 
 
-class ProjectViewSet(viewsets.ModelViewSet):
+class ProjectViewSet(viewsets.ReadOnlyModelViewSet):
     """
     API endpoint to handle project related requests.
     """
