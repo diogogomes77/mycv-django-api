@@ -7,5 +7,5 @@ class CollaborationSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Collaboration
-        depth = 2
+        depth = 1
         fields = ('id', 'collaborator', 'started_at', 'ended_at', 'technologies')
