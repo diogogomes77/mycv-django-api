@@ -13,3 +13,16 @@ class User(AbstractUser):
     def is_manager(self) -> bool:
         """Define if the user is related to a manager."""
         return hasattr(self, 'manager')
+
+    def __str__(self) -> str:
+        return f"{self.get_full_name()} ({self.roles})"
+
+    @property
+    def roles(self):
+        roles = []
+        if self.is_manager:
+            roles.append("manager")
+        if self.is_developer:
+            roles.append("developer")
+
+        return ", ".join(roles)

@@ -22,5 +22,13 @@ class Collaboration(models.Model):
     ended_at = models.DateField(null=True, blank=True)
 
     technologies = models.ManyToManyField(Technology,
+                                          related_name='collaborations',
                                           through=CollaborationTechnology,
                                           through_fields=['collaboration', 'technology'])
+
+    @property
+    def id(self):
+        return self.id
+
+    def __str__(self) -> str:
+        return f"{self.collaborator} on {self.project}"

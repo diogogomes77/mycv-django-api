@@ -8,6 +8,7 @@ class TechnologyViewSet(viewsets.ReadOnlyModelViewSet):
     """
     API endpoint that allows technologies to be viewed or edited.
     """
+
     queryset = Technology.objects.all()
     serializer_class = TechnologySerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
