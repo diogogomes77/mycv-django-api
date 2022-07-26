@@ -8,11 +8,12 @@ class Technology(models.Model):
     name = models.CharField(max_length=64, blank=False)
     content = models.TextField(null=True, blank=True)
     parents = models.ManyToManyField(
-        'self', blank=True,
-        through='ParentTechnology',
+        "self",
+        blank=True,
+        through="ParentTechnology",
         through_fields=["technology", "parent"],
         related_name="children",
-        symmetrical=False
+        symmetrical=False,
     )
 
     def __str__(self):
@@ -25,14 +26,10 @@ class Technology(models.Model):
 
 class ParentTechnology(models.Model):
     technology = models.ForeignKey(
-        Technology,
-        on_delete=models.CASCADE,
-        related_name='parent_tech'
+        Technology, on_delete=models.CASCADE, related_name="parent_tech"
     )
     parent = models.ForeignKey(
-        Technology,
-        on_delete=models.CASCADE,
-        related_name='tech_parent'
+        Technology, on_delete=models.CASCADE, related_name="tech_parent"
     )
 
     @property
@@ -41,15 +38,11 @@ class ParentTechnology(models.Model):
 
 
 class ProjectTechnology(models.Model):
-    project = models.ForeignKey('projects.Project',
-                                null=False,
-                                blank=False,
-                                on_delete=models.CASCADE)
+    project = models.ForeignKey(
+        "projects.Project", null=False, blank=False, on_delete=models.CASCADE
+    )
     technology = models.ForeignKey(
-        Technology,
-        null=False,
-        blank=False,
-        on_delete=models.CASCADE
+        Technology, null=False, blank=False, on_delete=models.CASCADE
     )
     comment = models.TextField(null=True, blank=True)
 
@@ -59,14 +52,13 @@ class ProjectTechnology(models.Model):
 
 
 class CollaborationTechnology(models.Model):
-    collaboration = models.ForeignKey('collaborations.Collaboration',
-                                      null=False,
-                                      blank=False,
-                                      on_delete=models.CASCADE)
-    technology = models.ForeignKey(
-        Technology,
+    collaboration = models.ForeignKey(
+        "collaborations.Collaboration",
         null=False,
         blank=False,
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+    )
+    technology = models.ForeignKey(
+        Technology, null=False, blank=False, on_delete=models.CASCADE
     )
     comment = models.TextField(null=True, blank=True)
