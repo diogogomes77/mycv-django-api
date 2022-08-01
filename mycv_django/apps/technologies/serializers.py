@@ -8,7 +8,8 @@ from mycv_django.apps.technologies.models import Technology
 class TechnologyProjectSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Project
-        fields = ("id", "name")
+        fields = ("id", "name", "slug")
+        lookup_field = "slug"
 
 
 class TechnologyCollaborationSerializer(serializers.ModelSerializer):

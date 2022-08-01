@@ -13,3 +13,4 @@ class ProjectTechologyInline(admin.TabularInline):
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
     inlines = [CollaborationsInline, ProjectTechologyInline]
+    prepopulated_fields = {"slug": ("name",)}

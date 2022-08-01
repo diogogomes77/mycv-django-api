@@ -23,6 +23,7 @@ class ProjectSerializer(serializers.ModelSerializer):
         model = Project
         fields = "__all__"
         depth = 1
+        lookup_field = "slug"
 
     collaborations = CollaborationSerializer(
         source="collaboration_set", many=True, read_only=True
