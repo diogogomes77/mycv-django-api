@@ -37,6 +37,7 @@ class TechnologySerializer(serializers.ModelSerializer):
         model = Technology
         fields = "__all__"
         depth = 1
+        lookup_field = "slug"
 
     projects = TechnologyProjectSerializer(many=True)
     collaborations = TechnologyCollaborationSerializer(many=True)

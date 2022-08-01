@@ -17,3 +17,4 @@ class TechologyInline(admin.TabularInline):
 @admin.register(Technology)
 class TechnologyAdmin(admin.ModelAdmin):
     inlines = [ParentTechologyInline]
+    prepopulated_fields = {"slug": ("name",)}
