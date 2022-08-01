@@ -15,6 +15,7 @@ class Technology(models.Model):
         related_name="children",
         symmetrical=False,
     )
+    slug = models.SlugField(null=False, unique=True)
 
     def __str__(self):
         return self.name
