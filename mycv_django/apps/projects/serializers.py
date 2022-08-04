@@ -34,6 +34,7 @@ class ProjectSerializer(serializers.ModelSerializer):
     collaborations = CollaborationSerializer(
         source="collaboration_set", many=True, read_only=True
     )
+    # TODO: remove technologies field
     project_technologies = ProjectTechnologySerializer(
         source="projecttechnology_set", many=True, read_only=True
     )

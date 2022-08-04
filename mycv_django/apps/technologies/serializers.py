@@ -3,6 +3,7 @@ from rest_framework import serializers
 from mycv_django.apps.collaborations.models import Collaboration
 from mycv_django.apps.projects.models import Project
 from mycv_django.apps.technologies.models import Technology
+from mycv_django.apps.users.serializers import UserSerializer
 
 
 class TechnologyProjectSerializer(serializers.HyperlinkedModelSerializer):
@@ -18,10 +19,8 @@ class TechnologyCollaborationSerializer(serializers.ModelSerializer):
         fields = ("id", "collaborator", "project")
         depth = 0
 
-
-# class TechnologyParentCollaborationSerializer(TechnologyCollaborationSerializer):
-#     class Meta(TechnologyCollaborationSerializer.Meta):
-#         depth = 0
+    collaborator = UserSerializer()
+    project = TechnologyProjectSerializer()
 
 
 class TechnologyParentSerializer(serializers.ModelSerializer):
@@ -33,13 +32,17 @@ class TechnologyParentSerializer(serializers.ModelSerializer):
 class TechnologySerializer(serializers.ModelSerializer):
     class Meta:
         model = Technology
-        fields = "__all__"
+        fields = (
+            "id",
+            "projects",
+            "collaborations",
+            "parents",
+            "name",
+            "slug",
+            "content",
+        )
         depth = 0
         lookup_field = "slug"
-
-    # projects = serializers.ListField(source="projects_set")
-    # collaborations = serializers.IntegerField()
-    # parents = serializers.IntegerField()
 
     projects = TechnologyProjectSerializer(many=True)
     collaborations = TechnologyCollaborationSerializer(many=True)
