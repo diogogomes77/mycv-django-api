@@ -6,8 +6,10 @@ from mycv_django.apps.technologies.serializers import TechnologySerializer
 
 class TechnologyViewSet(viewsets.ReadOnlyModelViewSet):
     """
-    API endpoint that allows technologies to be viewed or edited.
+    API endpoint that allows technologies to be viewed.
     """
+
     queryset = Technology.objects.all()
     serializer_class = TechnologySerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    lookup_field = "slug"
